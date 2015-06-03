@@ -18,5 +18,3 @@ In the created SVG, green lines represent depenency relations, red lines represe
 blue lines represent recommended relations and yellow lines represent suggested relations, the
 dashed versions of these represent the same meanings but originating from source package.
 Purple lines are connections between source package and binary packages.
-
-![Example graph](https://raw.githubusercontent.com/jesopo/debian-package-graph/master/example_iptables_stretch.svg)
