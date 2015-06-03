@@ -50,7 +50,7 @@ db_cursor.execute(
     [args.package, args.release])
 source_result = db_cursor.fetchone()
 if not source_result:
-    sys.stderr.write("Package name not found\n")
+    sys.stderr.write("Source package not found\n")
     sys.exit()
 source_name = source_result[0]
 version = source_result[1]
