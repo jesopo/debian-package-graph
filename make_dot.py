@@ -37,6 +37,7 @@ def make_binary_digraph(source_variable, binary_name, binary_depends,
 arg_parser = argparse.ArgumentParser(description=
     "Create SVG graph of package dependencies and conflicts from debian repositories.")
 arg_parser.add_argument("--release", default="sid", help="Debian release (default: sid)")
+arg_parser.add_argument("--format", default="svg", help="Output format (default: svg)")
 arg_parser.add_argument("package", help="Name of the package to render a graph of")
 args = arg_parser.parse_args()
 
@@ -82,7 +83,7 @@ for package_name, package_depends, package_conflicts, package_recommends, \
         package_recommends, package_suggests)
 dot_text += "}\n"
 
-process = subprocess.Popen(["dot", "-Tsvg"], stdout=subprocess.PIPE,
+process = subprocess.Popen(["dot", "-T", args.format], stdout=subprocess.PIPE,
     stdin=subprocess.PIPE)
 process.stdin.write(dot_text.encode("utf8"))
 svg = process.communicate()[0].decode("utf8")
